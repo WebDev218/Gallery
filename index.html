@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mr Clubb</title>
+		<link rel="stylesheet" type="text/css" href="style.css">		
+	</head>	
+	<body>
+
+	<nav id="navBar">
+		<a href="#"><img src="images/fish_small.png" id="pageLogo"></a>
+		<ul>			
+			<li class="navItem"><a href="#">Home</a></li>
+			<li class="navItem"><a href="#">Item 2!!</a></li>
+			<li class="navItem"><a href="#">Item 3!!!</a></li>
+		</ul>
+	</nav>
+
+	<div id="pageContent">
+		<h1>Content Title!!</h1>
+
+		<div id="imageSelect">
+			<div id="buttonContainer">
+				<button class="imageSwitch">Image 1</button>
+				<button class="imageSwitch">Image 2</button>
+				<button class="imageSwitch" onclick="openModal()">Open Modal!</button>
+			</div>
+
+			<div id="imagePanels">
+
+
+				<div class="iPanel">
+					<a href="#"><img src="images/1_small.png" id="images/1_large.png" onclick="openModal(this.id)" class="imageP"></a>					
+				</div>
+
+				<div class="iPanel">
+					<a href="#"><img src="images/2_small.png" id="images/2_large.png" onclick="openModal(this.id)" class="imageP"></a>					
+				</div>				
+
+				<div id="floatFix"></div>
+			</div>			
+		</div>
+	</div>
+
+
+	<div id="modalContainer">
+		<div id="modal">
+		<span id="modalClose" onclick="closeModal()"><a href="#">X</a></span>
+		<span id="modalContent"></span>			
+		</div>
+	</div>
+
+	<footer>&copy; Matt Clubb 2016</footer>
+	<script language="javascript" type="text/javascript" src="script.js"></script>
+	</body>
+</html>
