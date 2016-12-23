@@ -129,12 +129,13 @@ body {
 
 #modal {
 	background-color: white;
-	position: absolute;
+/*	position: absolute;
 	top: 10%;		
-	left: 20%;
+	left: 20%;*/
 
-
-	max-width: 922px;	
+	height: auto;
+	width: auto;
+		
 	margin: auto;
 	border: 2px solid darkgrey;
 	outline: 1px solid lightgrey;

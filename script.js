@@ -1,41 +1,53 @@
-var modal = document.getElementById("modalContainer");
+var modalContainer = document.getElementById("modalContainer");
 var modalContent = document.getElementById("modalContent");
 var modalClose = document.getElementById("modalClose");
+var modal = document.getElementById("modal");
 var image = document.createElement("img");
-var iHeight;	
+var iHeight;
+var img = document.getElementById("modalImage");	
 
 function openModal(largeImage) {	
 	modalContent.appendChild(image);	
 	image.setAttribute("src", largeImage);
 	image.setAttribute("id", "modalImage");	
 
-	modal.style.display = "block";
-	populateModal();	
-}
-
-function populateModal() {
-	iHeight = document.getElementById("modalImage");
-	console.log(iHeight.clientHeight);
-
-	// var width = image.naturalWidth; //natural height will give the files actual height, not the height on the page. 
-	// console.log(image.clientWidth);
-	// var height = image.clientHeight; //client height is it's height in the client browser
-	// console.log(height);
-	// // modal.style.width = width;
-	// // modal.style.width = height;
-
-
+	modalContainer.style.display = "block";
 }
 
 
+image.onload = function()  {	
+   	console.log("It worked!!");
+   	sizeModal()
+}
+
+function sizeModal() {
+	var iWidth = image.width;
+   	var iHeight = image.height;
+   	var winWidth = window.innerWidth;
+   	var winHeight = window.innerHeight;
+
+   	modal.style.marginLeft = ((winWidth - iWidth) / 2) + "px";
+   	modal.style.marginTop = ((winHeight - iHeight) / 2) + "px";
+   	modal.style.width = iWidth + "px";
+   	modal.style.height = iHeight + "px";
+}
 
 function closeModal() {
 	image.setAttribute("src", "");
-	modal.style.display = "none";	
+	modalContainer.style.display = "none";	
 }
 
 window.onclick = function(event) {
-	if (event.target == modal) {		
+	if (event.target == modalContainer) {		
 		closeModal();		
 	}
 }
+
+window.addEventListener("resize", sizeModal);
+
+// document.getElementById("image").onload = function() {
+// 	console.log("It worked");
+// };
+
+
+
