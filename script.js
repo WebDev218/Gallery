@@ -31,6 +31,7 @@ function sizeModal() {
    	image.style.width = "auto"; //This stops the modal sizing to the previous image
    	image.style.height = "auto";
 
+/*
    	if (image.naturalWidth > image.naturalHeight) {
    		isWider = true;   		   		
    	}
@@ -39,10 +40,10 @@ function sizeModal() {
    	if (isWider == true && image.naturalWidth > winWidth) {   		
    		image.style.width = (winWidth - 40) + "px";
 
-		if (image.height > (winHeight - 60)) {
+		if (image.height > (winHeight - 40)) {
 			var i = 10;
 			while (image.height > (winHeight - 40)) {
-				image.style.width = (winWidth - (60 + i)) + "px";				
+				image.style.width = (winWidth - (40 + i)) + "px";				
 				i = i + 10;
 			}
 		}
@@ -60,7 +61,38 @@ function sizeModal() {
 			}
 		}
 
-   	}
+   	}*/
+
+
+
+
+   	// Alternate way of achieving. 
+	var i = 10;
+
+	if (image.naturalHeight >= window.innerHeight || image.naturalWidth >= window.innerWidth) {
+
+		if (image.naturalWidth > image.naturalHeight) {
+			
+			image.style.width = (window.innerWidth - 80) + "px";
+
+			i = 10;
+			while (image.height >= window.innerHeight) {
+				image.style.width = (window.innerWidth - (80 + i)) + "px";
+				i = i + 10;				
+			}
+			
+		}
+            
+		if (image.naturalHeight >= image.naturalWidth) {
+			image.style.height = (window.innerHeight - 80) + "px";
+
+			i = 10;
+			while (image.width >= window.innerWidth) {			
+				image.style.height = (window.innerHeight - (80 + i)) + "px";
+				i = i + 10;			
+			}
+		}
+	}
 
    	iWidth = image.width;
    	iHeight = image.height;
