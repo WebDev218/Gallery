@@ -45,6 +45,7 @@ window.onclick = function(event) {
 
 window.addEventListener("resize", sizeModal);
 
+
 // document.getElementById("image").onload = function() {
 // 	console.log("It worked");
 // };
