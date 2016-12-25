@@ -15,21 +15,94 @@ function openModal(largeImage) {
 }
 
 
-image.onload = function()  {	
-   	console.log("It worked!!");
+image.onload = function()  {	  	
    	sizeModal()
 }
 
 function sizeModal() {
-	var iWidth = image.width;
-   	var iHeight = image.height;
    	var winWidth = window.innerWidth;
    	var winHeight = window.innerHeight;
+   	var iWidth = image.width;
+   	var iHeight = image.height;
+   	var isWider = false;
+
+
+
+   	image.style.width = "auto"; //This stops the modal sizing to the previous image
+   	image.style.height = "auto";
+
+/*
+   	if (image.naturalWidth > image.naturalHeight) {
+   		isWider = true;   		   		
+   	}
+
+
+   	if (isWider == true && image.naturalWidth > winWidth) {   		
+   		image.style.width = (winWidth - 40) + "px";
+
+		if (image.height > (winHeight - 40)) {
+			var i = 10;
+			while (image.height > (winHeight - 40)) {
+				image.style.width = (winWidth - (40 + i)) + "px";				
+				i = i + 10;
+			}
+		}
+
+
+
+   	} else if (isWider == false && image.naturalHeight > winHeight) {  		
+		image.style.height = (winHeight - 40) + "px";
+
+		if (image.width > (winWidth - 40)) {
+			var i = 10;
+			while (image.width > (winWidth - 40)) {
+				image.style.height = (winHeight - (40 + i)) + "px";				
+				i = i + 10;
+			}
+		}
+
+   	}*/
+
+
+
+
+   	// Alternate way of achieving. 
+	var i = 10;
+
+	if (image.naturalHeight >= window.innerHeight || image.naturalWidth >= window.innerWidth) {
+
+		if (image.naturalWidth > image.naturalHeight) {
+			
+			image.style.width = (window.innerWidth - 80) + "px";
+
+			i = 10;
+			while (image.height >= window.innerHeight) {
+				image.style.width = (window.innerWidth - (80 + i)) + "px";
+				i = i + 10;				
+			}
+			
+		}
+            
+		if (image.naturalHeight >= image.naturalWidth) {
+			image.style.height = (window.innerHeight - 80) + "px";
+
+			i = 10;
+			while (image.width >= window.innerWidth) {			
+				image.style.height = (window.innerHeight - (80 + i)) + "px";
+				i = i + 10;			
+			}
+		}
+	}
+
+   	iWidth = image.width;
+   	iHeight = image.height;
 
    	modal.style.marginLeft = ((winWidth - iWidth) / 2) + "px";
    	modal.style.marginTop = ((winHeight - iHeight) / 2) + "px";
    	modal.style.width = iWidth + "px";
    	modal.style.height = iHeight + "px";
+
+
 }
 
 function closeModal() {
@@ -45,9 +118,6 @@ window.onclick = function(event) {
 
 window.addEventListener("resize", sizeModal);
 
-// document.getElementById("image").onload = function() {
-// 	console.log("It worked");
-// };
 
 
 
