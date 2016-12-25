@@ -69,14 +69,14 @@ function sizeModal() {
    	// Alternate way of achieving. 
 	var i = 10;
 
-	if (image.naturalHeight >= window.innerHeight || image.naturalWidth >= window.innerWidth) {
+	if (image.naturalHeight >= (window.innerHeight - 60) || image.naturalWidth >= (window.innerWidth - 60)) {
 
 		if (image.naturalWidth > image.naturalHeight) {
 			
 			image.style.width = (window.innerWidth - 80) + "px";
 
 			i = 10;
-			while (image.height >= window.innerHeight) {
+			while (image.height >= (window.innerHeight - 60)) {
 				image.style.width = (window.innerWidth - (80 + i)) + "px";
 				i = i + 10;				
 			}
@@ -87,12 +87,12 @@ function sizeModal() {
 			image.style.height = (window.innerHeight - 80) + "px";
 
 			i = 10;
-			while (image.width >= window.innerWidth) {			
+			while (image.width >= (window.innerWidth - 60)) {			
 				image.style.height = (window.innerHeight - (80 + i)) + "px";
 				i = i + 10;			
 			}
 		}
-	}
+	} 
 
    	iWidth = image.width;
    	iHeight = image.height;
