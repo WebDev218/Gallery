@@ -119,5 +119,6 @@ window.onclick = function(event) {
 window.addEventListener("resize", sizeModal);
 
 
+/* =============== Gallery Index ================== */
 
-
+var 
