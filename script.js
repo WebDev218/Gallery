@@ -9,7 +9,11 @@ var img = document.getElementById("modalImage");
 function openModal(largeImage) {	
 	modalContent.appendChild(image);	
 	image.setAttribute("src", largeImage);
-	image.setAttribute("id", "modalImage");	
+	image.setAttribute("id", "modalImage");
+
+	galleryIndex = largeImage.charAt(7);
+	console.log(largeImage);	
+	console.log(galleryIndex);	
 
 	modalContainer.style.display = "block";
 }
@@ -121,4 +125,36 @@ window.addEventListener("resize", sizeModal);
 
 /* =============== Gallery Index ================== */
 
-var 
+/* ==== Temporary code ==== */
+
+var galleryLength = 4;
+var galleryIndex;
+
+
+function clickRight() {
+	var nextImage;
+
+	galleryIndex++;
+
+	if (galleryIndex > galleryLength) {
+		galleryIndex = 1;
+	}
+
+	nextImage = "images/" + galleryIndex + "_large.png";
+	openModal(nextImage);		
+}
+
+function clickLeft() {
+	var nextImage;
+
+	galleryIndex--;
+
+	if (galleryIndex < 1) {
+		galleryIndex = galleryLength;
+	}
+
+	console.log(galleryIndex);
+	
+	nextImage = "images/" + galleryIndex + "_large.png";
+	openModal(nextImage);		
+}
