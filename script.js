@@ -11,9 +11,11 @@ function openModal(largeImage) {
 	image.setAttribute("src", largeImage);
 	image.setAttribute("id", "modalImage");
 
+
 	// galleryIndex = largeImage.charAt(7);
 	// console.log(largeImage);	
 	// console.log(galleryIndex);	
+
 
 	modalContainer.style.display = "block";
 }
@@ -127,6 +129,7 @@ window.addEventListener("resize", sizeModal);
 
 /* ==== Temporary code ==== */
 
+
 // var galleryLength = 4;
 // var galleryIndex;
 
@@ -159,3 +162,8 @@ window.addEventListener("resize", sizeModal);
 // 	openModal(nextImage);	
 // }
 
+	console.log(galleryIndex);
+	
+	nextImage = "images/" + galleryIndex + "_large.png";
+	openModal(nextImage);		
+}
