@@ -130,7 +130,8 @@ body {
 #modal {
 	display: block;
 	background-color: white;
-/*	position: absolute;
+	position: relative;
+	/*
 	top: 10%;		
 	left: 20%;*/
 
@@ -179,14 +180,18 @@ body {
 /* ========== Image Change Arrows ========== */
 
 #iChangeLeft {	
-	float: left;	
+	/*float: left;*/
+	left: 0px;	
 }
 
 #iChangeRight {
-	float: right;	
+	/*float: right;*/
+	right: 0px;	
 }
 
 .iChanger { /* Class for both buttons */
+	position: absolute;
+
 	z-index: 2;		
 	margin: 0px;	
 }
