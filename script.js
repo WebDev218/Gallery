@@ -6,14 +6,18 @@ var image = document.createElement("img");
 var iHeight;
 var img = document.getElementById("modalImage");	
 
+var lChanger = document.getElementById("iChangeLeft");
+var rChanger = document.getElementById("iChangeRight");
+
+
 function openModal(largeImage) {	
 	modalContent.appendChild(image);	
 	image.setAttribute("src", largeImage);
 	image.setAttribute("id", "modalImage");
 
-	// galleryIndex = largeImage.charAt(7);
-	// console.log(largeImage);	
-	// console.log(galleryIndex);	
+	galleryIndex = largeImage.charAt(7);
+	console.log(largeImage);	
+	console.log(galleryIndex);	
 
 	modalContainer.style.display = "block";
 }
@@ -101,11 +105,21 @@ function sizeModal() {
    	iWidth = image.width;
    	iHeight = image.height;
 
+
+
+
    	modal.style.marginLeft = ((winWidth - iWidth) / 2) + "px";
    	modal.style.marginTop = ((winHeight - iHeight) / 2) + "px";
    	modal.style.width = iWidth + "px";
    	modal.style.height = iHeight + "px";
 
+   	lChanger.style.top = ((image.height - 400) / 2) + "px";
+   	rChanger.style.top = ((image.height - 400) / 2) + "px";
+   	/*
+	Finds the heigh of the image, then deducts 400, the height of the arrow. Then divides by 2. 
+	This puts the arrow in the middle of the resized image. naturalHeight cannot be used as larger
+	images will put the arrows off screen. 
+   	*/
 
 }
 
@@ -127,35 +141,37 @@ window.addEventListener("resize", sizeModal);
 
 /* ==== Temporary code ==== */
 
-// var galleryLength = 4;
-// var galleryIndex;
+var galleryLength = 4;
+var galleryIndex;
+var nextImage;
 
 
-// function clickRight() {
-// 	var nextImage;
+function clickRight() {
+	var nextImage;
 
-// 	galleryIndex++;
+	galleryIndex++;
 
-// 	if (galleryIndex > galleryLength) {
-// 		galleryIndex = 1;
-// 	}
+	if (galleryIndex > galleryLength) {
+		galleryIndex = 1;
+	}
 
-// 	nextImage = "images/" + galleryIndex + "_large.png";
-// 	openModal(nextImage);		
-// }
+	console.log(galleryIndex);
+	nextImage = "images/" + galleryIndex + "_large.png";
+	openModal(nextImage);		
+}
 
-// function clickLeft() {
-// 	var nextImage;
+function clickLeft() {
 
-// 	galleryIndex--;
 
-// 	if (galleryIndex < 1) {
-// 		galleryIndex = galleryLength;
-// 	}
+	galleryIndex--;
 
-// 	console.log(galleryIndex);
+	if (galleryIndex < 1) {
+		galleryIndex = galleryLength;
+	}
+
+	console.log(galleryIndex);
 	
-// 	nextImage = "images/" + galleryIndex + "_large.png";
-// 	openModal(nextImage);	
-// }
+	nextImage = "images/" + galleryIndex + "_large.png";
+	openModal(nextImage);	
+}
 

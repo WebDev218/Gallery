@@ -130,7 +130,8 @@ body {
 #modal {
 	display: block;
 	background-color: white;
-/*	position: absolute;
+	position: relative;
+	/*
 	top: 10%;		
 	left: 20%;*/
 
@@ -179,28 +180,38 @@ body {
 /* ========== Image Change Arrows ========== */
 
 #iChangeLeft {	
-	float: left;	
+	/*float: left;*/
+	left: 0px;	
 }
 
 #iChangeRight {
-	float: right;	
+	/*float: right;*/
+	right: 0px;	
 }
 
 .iChanger { /* Class for both buttons */
+	position: absolute;
+	
+
 	z-index: 2;		
-	margin: 0px;	
+	margin: 0px;
+	opacity: 0.1;
+	transition: opacity 1s;	
 }
 
 .iChanger:hover {
 	opacity: 0.8;
+	cursor: pointer;
 }
 
 .iChangeImage { /* Class for the buttons images */
-	margin: 0px;
-	opacity: 0.2;
-	
+	margin: 0px;	
 }
 
-.iChangeImage:hover {
-		opacity: 0.8;
+#modal:hover > a {
+	opacity: 0.4;
+}
+
+#modal:hover > div {
+	opacity: 0.4;
 }
