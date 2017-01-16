@@ -8,7 +8,9 @@ var img = document.getElementById("modalImage");
 
 var lChanger = document.getElementById("iChangeLeft");
 var rChanger = document.getElementById("iChangeRight");
+var modalMenu = document.getElementById("modalMenuWrapper");
 
+var modalType = "arrows";
 
 function openModal(largeImage) {	
 	modalContent.appendChild(image);	
@@ -20,6 +22,22 @@ function openModal(largeImage) {
 	console.log(galleryIndex);	
 
 	modalContainer.style.display = "block";
+
+	if (modalType == "arrows") {
+		modalMenu.style.visibility = "hidden";
+
+		lChanger.style.display = "block";
+		rChanger.style.display = "block";
+	} else if (modalType == "menu") {
+		lChanger.style.display = "none";
+		rChanger.style.display = "none";
+
+		modalMenu.style.visibility = "visible";
+	} else if (modalType == "both") {
+		modalMenu.style.visibility = "visible";
+		lChanger.style.display = "block";
+		rChanger.style.display = "block";
+	}
 }
 
 
@@ -175,3 +193,10 @@ function clickLeft() {
 	openModal(nextImage);	
 }
 
+/* ================== Modal Selector ==================== */
+
+
+
+function selectModal(type) {	
+	modalType = type;	
+}

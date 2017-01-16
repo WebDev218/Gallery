@@ -69,6 +69,16 @@ body {
 	margin: 10px;
 }
 
+/* ===== Radio Buttons ===== */
+
+.radio {
+	display: inline-block;
+}
+
+form {
+	color: white;
+}
+
 /* ======================================= Image Selector ==================================== */
 
 #imageSelect{
@@ -208,10 +218,55 @@ body {
 	margin: 0px;	
 }
 
-#modal:hover > a {
+/*#modal:hover > a {
+	opacity: 0.4;
+}*/
+
+#modal:hover > .iChanger {
 	opacity: 0.4;
 }
 
-#modal:hover > div {
-	opacity: 0.4;
+
+/* =================== Modal Menu ======================= */
+
+#modalMenuWrapper {
+	display: none;
 }
+
+#modalMenu {	
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	height: 40px;
+	background-color: black;
+	opacity: 0.8;
+	transition: display 2s;
+
+	animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+
+#modal:hover > #modalMenuWrapper {
+	display: block;
+}
+
+.modalMenuButton {
+	height: 40px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+.modalMenuButton:hover {
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+}
+
+.modalMenuButton {
+	cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {bottom: -20px; opacity: 0}
+    to {bottom: 0; opacity: 0.8}
+}
+

@@ -23,6 +23,12 @@
 				<button class="imageSwitch">Image 1</button>
 				<button class="imageSwitch">Image 2</button>
 				<button class="imageSwitch" onclick="openModal()">Open Modal!</button>
+
+				<form>
+					<input type="radio" name="modalType" value="arrows" checked class="radio" onclick="selectModal(this.value)">Arrows |
+					<input type="radio" name="modalType" value="menu"class="radio" onclick="selectModal(this.value)">Menu |
+					<input type="radio" name="modalType" value="both"class="radio" onclick="selectModal(this.value)">Both
+				</form>
 			</div>
 
 			<div id="imagePanels">
@@ -54,15 +60,26 @@
 		<div id="modal">
 		<span id="modalClose" onclick="closeModal()"><a href="#">X</a></span>
 
-
+		<!-- Modal Arrows -->
 		<div id="iChangeLeft" class="iChanger" onclick="clickLeft()">
 			<img class="iChangeImage" src="images/l_change.png">
 		</div>
 
-
-
 		<div id="iChangeRight" class="iChanger" onclick="clickRight()"><img class="iChangeImage" src="images/r_change.png">
 		</div>
+		<!-- Modal Arrows End -->
+
+
+
+		<!-- Modal Menu -->
+		<div id="modalMenuWrapper">
+			<div id="modalMenu">
+				<img src="images/modalbar/larrow.png" class="modalMenuButton" onclick="clickLeft()">
+
+				<img src="images/modalbar/rarrow.png" class="modalMenuButton" onclick="clickRight()">
+			</div>
+		</div>
+		<!-- Modal Menu End-->
 
 
 
