@@ -200,3 +200,19 @@ function clickLeft() {
 function selectModal(type) {	
 	modalType = type;	
 }
+
+
+/* ================== Keyboard input ==================== */
+
+document.onkeydown = function() {
+	var e = window.event;
+
+	if (e.keyCode == "37") {
+		clickLeft();
+	} else if (e.keyCode == "39") {
+		clickRight();
+	} else if (e.keyCode == "27") { //Escape key
+		closeModal();
+	}
+
+};
